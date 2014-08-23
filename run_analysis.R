@@ -44,6 +44,12 @@ bigData$activity[bigData$activity == 6] = "LAYING"
 
 # 5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject
 tidy <- aggregate(bigData, by=list(activity = bigData$activity, subject=bigData$subject), mean)
+columnsnames <- colnames(tidy) # get column names
+columnsnames <- gsub("-mean()","mean",columnsnames,fixed=TRUE) # change -mean()
+columnsnames <- gsub("-std()","std",columnsnames,fixed=TRUE) # change -std()
+columnsnames <- tolower(columnsnames) # everything to lower
+
+colnames(tidy) <- columnsnames
 #remove activity and subject, no meaning
 tidy[,70]= NULL
 tidy[,69] = NULL
