@@ -1,4 +1,4 @@
-#Codebook
+#Code book for run_analysis
 
 This is a code book that describes the variables, the data, and any transformations that need to be performed to clean up the data.
 
